@@ -1,0 +1,53 @@
+extends ../layout/admin
+
+block style
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
+
+block  contenido
+    div.py-10
+        h1.text-4xl.my-10.font-extrabold.text-center Donde
+            span.font-normal Tipo
+        h2.text-center.text-2xl.font-extrabold= pagina
+
+        if errores
+            div(class="max-w-md mx-auto my-10")
+                each error in errores
+                    p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold=error.msg
+
+
+    div(class="bg-white shadow py-8 px-4 rounded mx-auto max-w-4xl my-10 md:px-10")
+        
+        form.space-y-8(method="POST" action="/productos/crear")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div.space-y-8  
+                h3.text-lg.leading-6.font-medium.text-gray-900 Informacion General
+                p.text-gray-600 Añade Información sobre el Producto de Venta
+                div
+                        lavel.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="titulo") Titulo de Anuncio
+                        input#titulo.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder= "Titulo Producto" type="text" name="titulo" value=datos.titulo ? datos.titulo : '')
+
+                div
+                        lavel.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="descripcion") Descripción
+                        textarea#descripcion.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder= "Descripcion Del Producto" name="descripcion")=datos.descripcion ? datos.descripcion : ''
+
+                
+                div(class="md:flex md:gap-4 space-y-5 md:space-y-0")
+                    div(class="md:w-1/2")
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="categoria") Categoria
+                        select#categoria.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="categoria")
+                            option(value="") -Seleccione- 
+                            each categoria in categorias
+                                option(value=categoria.id selected= datos.categoria ? datos.categoria == categoria.id ? true : false : null)= categoria.nombre
+
+                    div(class="md:w-1/2")
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="precio") Precio
+                        select#precio.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="precio")
+                            option(value="") -Seleccione- 
+                            each precio in precios
+                                option(value=precio.id selected= datos.precio ? datos.precio == precio.id ? true : false : null)= precio.nombre
+                
+                input(class="w-full py-3 bg-yellow-600 hover:bg-yellow-700 rounded text-white font-bold uppercase cursor-pointer" type="submit" value="Añadir Imagen")
+
+                    
+                
+

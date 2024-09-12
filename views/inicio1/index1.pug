@@ -1,0 +1,111 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Bar donde tipo
+    //- link(rel="preload" href="css/normalize.css" as="style")
+    link(rel="preload" href="/inicio/style.css" as="style")
+    link(rel="stylesheet" href="/css/style.css")
+
+
+  
+  body
+    header.titulo-prin
+      h1.titulo| Donde Tipo
+      h3 GastroBar
+
+
+    .nav-bg
+      nav.navegacion-principal.contenedor
+        a(href="/inicio1/index1") Inicio
+        a(href="#") Sobre Nosotros
+        a(href="/") Productos
+        a(href="#") Contactos
+
+    .slider
+      .slides
+        img(class="slide active" src="/img/bar8.jpg", alt="Imagen 1")
+        img(class="slide" src="/img/bar7.jpg", alt="Imagen 2")
+        img(class="slide" src="/img/cerveza1.jpg", alt="Imagen 3")
+        //- Puedes agregar más imágenes si es necesario
+
+      // Botones de navegación
+      button.prev(onclick="prevSlide()") &#10094;  
+      button.next(onclick="prevSlide()") &#10095;   
+
+    //- Archivo JavaScript para controlar el slider
+    script(src="/js/slider.js")
+          
+
+    main
+
+      .contenedor
+        h2 Mis Servicios
+      .servicios
+        section.servicio
+          .iconos
+            
+        section.servicio
+          h2 Sobre Nosotros
+          p En Donde Tipo GastroBar, unimos lo mejor de la gastronomía y mixología en un ambiente acogedor. Nuestro menú, elaborado con ingredientes frescos, fusiona sabores tradicionales y modernos, desde tapas creativas hasta platos sorprendentes.
+          p En el bar, nuestros expertos mixólogos te sorprenderán con cócteles innovadores y clásicos con un toque especial. Cada bebida está diseñada para complementar la experiencia culinaria. Ven y disfruta de un lugar donde la buena comida, bebidas excepcionales y un ambiente vibrante se encuentran en armonía. ¡Te esperamos para crear momentos inolvidables en Donde Tipo!
+          
+      
+      
+            
+      .contenedor2
+        .servicios2
+          section.servicio2
+            h2 Gastronomía y Coctelería
+            p En el Bar Donde Tipo, te ofrecemos una experiencia culinaria única con nuestras exquisitas hamburguesas artesanales, que fusionan los sabores tradicionales del sur de Estados Unidos con un toque moderno. Además, nuestros platos de parrilla y BBQ están preparados con la mejor selección de carnes y técnicas que realzan cada sabor.
+
+            p Para acompañar esta experiencia gastronómica, nuestra coctelería de autor está diseñada para sorprenderte con cada sorbo. Desde combinaciones clásicas reinventadas hasta creaciones originales, cada cóctel es una obra maestra.
+          section.servicio2
+            .iconos2
+
+
+      section.contenedor.comprar
+        h2.comprar__titulo ¿porqué comprar con nosotros?
+
+        .bloques
+          .bloque
+            img.bloque__imagen(src="/img/cocina.png", alt="porque comprar")
+            h3.bloque__titulo Variedad Gastronómica
+            p Un menú que cambia con las estaciones, adaptándose a lo mejor que cada temporada tiene para ofrecer. Desde opciones vegetarianas hasta carnes y mariscos, siempre hay algo nuevo por descubrir.
+
+
+          .bloque
+            img.bloque__imagen(src="/img/coctel.png", alt="porque comprar")
+            h3.bloque__titulo Cocteleria De Autor
+            p Nuestros bartenders son verdaderos artistas, creando cócteles exclusivos que complementan a la perfección nuestra oferta gastronómica. Ya sea que prefieras un clásico o algo más innovador, tenemos la bebida perfecta para acompañar tu velada.
+
+
+          .bloque
+            img.bloque__imagen(src="/img/restaurante.png", alt="porque comprar")
+            h3.bloque__titulo Ambiente Acogedor
+            p Creemos que una gran experiencia no solo depende de la comida, sino también del ambiente. Por eso, hemos creado un espacio donde puedes relajarte, disfrutar de buena música y compartir momentos especiales con amigos y familiares.
+
+
+          .bloque
+            img.bloque__imagen(src="/img/mesa.png", alt="porque comprar")
+            h3.bloque__titulo Compromiso Con La Calidad
+            p Nos enorgullece trabajar con proveedores locales y sostenibles, asegurando que cada plato refleje nuestro compromiso con la calidad y el respeto por el medio ambiente.
+
+        h2 Nuestra Ubicación
+
+                iframe(
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2181.546018353798!2d-74.9297105986693!3d3.7505520792910403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zM8KwNDUnMDIuNSJOIDc0wrA1NSc0My44Ilc!5e0!3m2!1ses-419!2sco!4v1724859087129!5m2!1ses-419!2sco"
+                  width="100%"
+                  height="450"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                )
+
+    footer Ismael Duvan
+
+
+
+

@@ -1,0 +1,12 @@
+header(class="bg-yellow-900 text-white p-4")
+            .container.mx-auto.flex.justify-between.items-center
+                a(href="//inicio1/index1") 
+                    h1.text-2xl.font-extrabold.text-center Donde 
+                        span.font-normal Tipo
+                nav(class="my-5 md:flex md:items-center md:gap-3 font-bold text-center")
+                    a(href="/" class="hover:text-yellow-500") Mis Productos
+                    a(href="/productos/mensajes" class="hover:text-yellow-500") Pedidos
+
+                    form(action="/auth/cerrar-sesion" method="POST")
+                        input(type="hidden" name="_csrf" value=csrfToken )
+                        input(type="submit" class="hover:bg-red-600 hover:py-2 hover:px-2 hover:rounded-lg" value="Cerrar Sesión")

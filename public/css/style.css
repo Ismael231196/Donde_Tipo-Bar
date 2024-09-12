@@ -1,0 +1,340 @@
+:root {  /*seudo elemento es una forma de almacenar varias variables se les conoce como custom propety */
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #523a28;
+    --gris: #757575;
+    --cafe-claro: #a47551;
+}
+
+/* Globales*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /* hack para box model*/
+    scroll-snap-type: y mandatory;
+}
+
+/* scroll snap*/
+/* .servicios, .navegacion-principal{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}  */
+
+
+*, *:before, *:after { /*el * significa que selecione todos los elementos del html*/
+    box-sizing: inherit; /*el after es un seudo elemento que no existe*/
+}
+
+body{
+    font-size: 16px; /*1 rem = 10px*/
+    font-family: "Krub", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    max-width: 100%;
+    margin: 0 auto;
+}
+    
+.contenedor2{
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #000000;
+}
+    
+
+/*Tipografia*/
+
+h1{ 
+    font-size: 3.8rem;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    width: 100%;
+    height: 100%;
+    color:  #ffbf00;
+    background: var(--secundario);
+    margin: 0 0;
+}
+
+h2{ 
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.titulo-prin h3{
+    font-size: 1.8rem;
+    background-color: var(--secundario);
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    width: 100%;
+    height: 100%;
+    color:  #ffbf00;
+    background: var(--secundario);
+    margin: 0 0;
+}
+
+h1, h2, h3{
+    text-align: center;
+}
+
+
+
+/* Navegacion principal */
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) { /*para una tablet*/
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.slider {
+    max-width: 100%;
+    height: 800px; 
+    overflow: hidden; 
+    margin: auto;
+    position: relative;
+  }
+  
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;  /* Ancho total de las slides */
+  }
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none; /* Ocultar todos los slides por defecto */
+  }
+
+.active {
+    display: block; /* Mostrar solo el slide activo */
+  }
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+
+/* servicios*/
+
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+        margin: 1rem;
+        gap: 1rem;
+    }
+
+    .servicios2{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+        margin: 1rem;
+        gap: 1rem;
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio .iconos{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url(../img/restaurante5.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    object-fit: cover;
+    margin: 0;
+    
+
+}
+
+.servicio2 .iconos2{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url(../img/restaurante6.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    margin: 0;
+    
+
+}
+.contenedor h2{
+    color: var(--secundario);
+}
+.servicio h2{
+    margin-top: 0;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    color: var(--secundario);
+}
+
+.servicio2 h2{
+    margin: 10px 0;
+    color: var(--primario);
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+}
+.servicio p{
+    text-decoration:solid;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    line-height: 1.6; /* Altura de línea para un espaciado adecuado */
+    text-align: justify;
+    font-weight: bold;
+    margin-top: 0;
+    color: var(--secundario);
+}
+
+.servicio2 p{
+    text-decoration:solid;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    line-height: 1.6; /* Altura de línea para un espaciado adecuado */
+    text-align: justify;
+    margin-top: 0;
+    color: var(--blanco);
+
+}
+
+/*nosotros*/
+/*Bloques*/
+/* Establece un padding y ancho máximo para que el contenido no se desborde */
+.contenedor {
+    padding: 0 1rem;
+    max-width: 100%;
+    margin: 0 auto;  /* Centra el contenido */
+}
+
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bloque {
+    text-align: center;
+    padding: 1rem;  /* Agrega espacio interno para que el contenido no se pegue al borde */
+}
+
+.bloque__titulo {
+    margin: 0;
+    color: var(--secundario);
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+}
+
+.bloque p{
+    color: var(--secundario);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+.bloque__imagen{
+    width: 200px;
+}
+
+/* Previene cualquier desbordamiento horizontal en la página */
+body {
+    overflow-x: hidden;
+}
+
+.mapa {
+    width: 100px; /* Asegura que el mapa tome el 100% del ancho de su contenedor */
+    height: 100%; /* Ajusta la altura del mapa */
+}
+
+.contenedor h2{
+    margin-bottom: 0;
+}
+
+/*footer*/
+footer{
+    text-align: center;
+    background-color: var(--secundario);
+    padding: 10px;
+}
+
+.scroll-container {
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    width: 100%;
+  }
+  
+  .scroll-item {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    flex: none;
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+  }
+  
+  .scroll-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0; /* Ajusta el estilo según tus necesidades */
+    text-decoration: none;
+    color: #333; /* Ajusta el color del texto según tus necesidades */
+  }

@@ -1,0 +1,37 @@
+extends ../layout/index
+
+block contenido
+    div(class="py-10")
+        h1.text-4xl.my-10.font-extrabold.text-center Donde
+            span.font-normal Tipo
+        h2.text-center.text-2xl.font-extrabold Crear Cuenta
+
+        if errores
+            div(class="max-w-md mx-auto my-10")
+                each error in errores
+                    p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold=error.msg
+
+        .mt-8.mx-auto.max-w-md
+            .bg-white.py-8.px-4.shadow.rounded-xl
+                form.space-y-5(method="POST" action="/auth/registros" noValidate)
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="nombre") Tu Nombre
+                        input#nombre.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Tu nombre" type="text" name="nombre" value=usuario ? usuario.nombre : '')
+
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="email") Email de Registro
+                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Tu Email" type="email" name="email" value=usuario ? usuario.email : '')
+
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="Password") Password
+                        input#Password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Tu Password" type="password" name="Password")
+
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="repetir_password") Repetir Password
+                        input#repetir_password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Repite tu Password" type="password" name="repetir_password")
+
+                    div(class="flex items-center justify-between")
+                        a(class="text-gray-500 text-xs hover:text-yellow-600")(href="/auth/login") ¿Ya Tienes Cuenta? Inicia Seción
+                        a(class="text-gray-500 text-xs hover:text-yellow-600")(href="/auth/olvide-password") Olvidé mi password
+                    input(class="w-full bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-3 cursor-pointer rounded-md" type="submit" value="Crear Cuenta")

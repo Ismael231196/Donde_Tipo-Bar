@@ -1,0 +1,5 @@
+ /* eso es para extraer los componentes de teilwind */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

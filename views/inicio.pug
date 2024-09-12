@@ -1,0 +1,15 @@
+extends ./layout/app
+
+block contenido
+    div(class="py-5")
+        h1(class="text-center text-4xl font-extrabold") PRODUCTOS
+
+            div(class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5")
+                each restaurante in Bebidas 
+                    include ./auth/card
+
+            div(class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5")
+                each restaurante in Comida_Rapida
+                    include ./auth/card
+    
+block script 
