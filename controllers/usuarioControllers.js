@@ -6,7 +6,10 @@ import {generarJWT, generarId} from '../helpers/tokens.js'
 import { emailRegistro, emailOlvidepassword } from '../helpers/email.js'
 
 
-
+const inicio = async (req, res) => {
+    res.render('inicio1/index1',{
+    })
+}
 const formulariologin = (req, res) => {
     res.render('auth/login',{
         pagina: 'Iniciar Sesión',
@@ -300,6 +303,7 @@ const nuevoPassword = async (req, res) => {
 };
 
 export {
+    inicio,
     formulariologin,
     autenticar,
     cerrarSesion,
