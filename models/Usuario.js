@@ -17,6 +17,7 @@ const Usuario = db.define('usuarios',{
         allowNull: false //este campo no puede ir vacio
     },
     token: DataTypes.STRING,
+    tokenExpira: DataTypes.DATE,
     confirmado: DataTypes.BOOLEAN
 },{
     hooks: {

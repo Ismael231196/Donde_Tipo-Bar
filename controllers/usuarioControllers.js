@@ -216,7 +216,8 @@ const resetPassword = async (req, res) => {
             })
         }
         //Generar un token y enviar el email
-        usuario.token =generarId()
+        usuario.token = generarId()
+        usuario.tokenExpira = new Date(Date.now() + 2 * 60 * 60 * 1000) // 2 horas
         await usuario.save()
 
         //Enviar en email
@@ -240,6 +241,18 @@ const comprobarToken = async(req, res) =>{
         return res.render('auth/confirmar-cuenta', {
             pagina: 'Restablece tu password',
             mensaje: 'Hubo un error al validar tu información, intenta de nuevo',
+            error: true
+        });
+    }
+
+    // Verificar que el token no haya expirado
+    if (usuario.tokenExpira && new Date() > usuario.tokenExpira) {
+        usuario.token = null;
+        usuario.tokenExpira = null;
+        await usuario.save();
+        return res.render('auth/confirmar-cuenta', {
+            pagina: 'Restablece tu password',
+            mensaje: 'El enlace ha expirado, solicita uno nuevo',
             error: true
         });
     }
@@ -285,8 +298,9 @@ const nuevoPassword = async (req, res) => {
 
         // Hashear el password
         const salt = await bcrypt.genSalt(10);
-        usuario.password = await bcrypt.hash(password, salt);
+        usuario.Password = await bcrypt.hash(password, salt);
         usuario.token = null;
+        usuario.tokenExpira = null;
 
         // Guardar el nuevo password
         await usuario.save();
