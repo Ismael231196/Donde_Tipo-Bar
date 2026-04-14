@@ -23,7 +23,7 @@ app.use(csrf({ cookie: true }));
 // conexión a la base de datos
 
     await db.authenticate() //authenticate es un metodo de siquialice
-    db.sync()
+    db.sync({ alter: true })
     
     console.log('conexion correcta a la base de datos');
     
